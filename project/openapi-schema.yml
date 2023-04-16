@@ -1,0 +1,188 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/v1/current_user/:
+    get:
+      operationId: retrieveUser
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateUser
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+      tags:
+      - api
+  /api/v1/accounts/register/:
+    post:
+      operationId: createDefaultRegisterUser
+      description: 'Register new user.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DefaultRegisterUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DefaultRegisterUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DefaultRegisterUser'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultRegisterUser'
+          description: ''
+      tags:
+      - api
+  /api/v1/accounts/login/:
+    post:
+      operationId: createDefaultLogin
+      description: 'Logs in the user via given login and password.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DefaultLogin'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DefaultLogin'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DefaultLogin'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DefaultLogin'
+          description: ''
+      tags:
+      - api
+  /api/v1/accounts/logout/:
+    post:
+      operationId: createLogout
+      description: 'Logs out the user. returns an error if the user is not authenticated.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Logout'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Logout'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Logout'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Logout'
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          readOnly: true
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+        subscriptions:
+          type: array
+          items:
+            type: integer
+        available_subscriptions:
+          type: string
+          readOnly: true
+      required:
+      - subscriptions
+    DefaultRegisterUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        password:
+          type: string
+          maxLength: 128
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+\z
+          maxLength: 150
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        password_confirm:
+          type: string
+          writeOnly: true
+      required:
+      - password
+      - username
+      - password_confirm
+    DefaultLogin:
+      type: object
+      properties:
+        login:
+          type: string
+        password:
+          type: string
+      required:
+      - login
+      - password
+    Logout:
+      type: object
+      properties:
+        revoke_token:
+          type: boolean
+          default: false
