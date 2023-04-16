@@ -16,15 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-#import rest_registration.api.urls
 
-from users.views import UserManageView #, UserLoginAPIView, UserLogoutAPIView
+from users.views import UserManageView
 
 api_urlpatterns = [
-    # path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('rest_registration.api.urls')),
-    # path('accounts/login/', UserLoginAPIView.as_view(), name='login'),
-    # path('accounts/logout/', UserLogoutAPIView.as_view(), name='logout'),
     path('current_user/', UserManageView.as_view(), name='current_user'),
 ]
 
