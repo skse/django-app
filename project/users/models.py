@@ -17,4 +17,4 @@ class User(AbstractUser):
         'subscriptions',
     )
 
-    subscriptions = models.ManyToManyField('self', symmetrical=False, related_name='related_to', blank=True, null=True)
+    subscriptions = models.ManyToManyField('self', symmetrical=False, related_name='related_to', blank=True)
