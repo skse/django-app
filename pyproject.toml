@@ -1,0 +1,12 @@
+[tool.black]
+line-length = 120
+skip-string-normalization = true
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+line_length = 120
+lines_between_types = 1
+force_grid_wrap = 4
+honor_noqa = true
+py_version=311

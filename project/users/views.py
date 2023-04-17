@@ -1,7 +1,5 @@
 from rest_framework.generics import RetrieveUpdateAPIView
-
 from users.serializers import UserSerializer
-
 
 # Create your views here.
 

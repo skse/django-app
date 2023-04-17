@@ -1,8 +1,7 @@
 from django.urls import path
-
-from up.views import index, databases
+from up import views
 
 urlpatterns = [
-    path("", index, name="index"),
-    path("databases", databases, name="databases"),
+    path("", views.index, name="index"),
+    path("databases", views.databases, name="databases"),
 ]
