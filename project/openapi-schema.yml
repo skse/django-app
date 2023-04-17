@@ -64,7 +64,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultRegisterUser'
+                $ref: '#/components/schemas/DefaultUserProfile'
           description: ''
       tags:
       - api
@@ -89,7 +89,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DefaultLogin'
+                $ref: '#/components/schemas/DefaultLoginResponse'
           description: ''
       tags:
       - api
@@ -114,12 +114,36 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Logout'
+                $ref: '#/components/schemas/LogoutResponse'
           description: ''
       tags:
       - api
 components:
   schemas:
+    DefaultUserProfile:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+\z
+          maxLength: 150
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          readOnly: true
+      required:
+      - username
     User:
       type: object
       properties:
@@ -182,9 +206,21 @@ components:
       required:
       - login
       - password
+    DefaultLoginResponse:
+      type: object
+      properties:
+        detail:
+          type: string
+        token:
+          type: string
     Logout:
       type: object
       properties:
         revoke_token:
           type: boolean
           default: false
+    LogoutResponse:
+      type: object
+      properties:
+        detail:
+          type: string
