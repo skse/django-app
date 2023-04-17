@@ -46,5 +46,14 @@ services:
     ports:
       - "${DOCKER_WEB_PORT_FORWARD:-127.0.0.1:8000}:${PORT:-8000}"
 
+  cicd-api-tests:
+    image: "postman/newman:5.3.1"
+    entrypoint: sh
+    command: "/src/newman-wrapper.sh"
+    volumes:
+      - "./api-tests:/src/"
+    depends_on:
+      - "web"
+
 volumes:
   postgres: {}

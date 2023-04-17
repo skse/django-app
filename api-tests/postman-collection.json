@@ -59,13 +59,10 @@
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/accounts/register/",
+					"raw": "http://{{host}}:8000/api/v1/accounts/register/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{host}}"
 					],
 					"port": "8000",
 					"path": [
@@ -122,13 +119,10 @@
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/accounts/login/",
+					"raw": "http://{{host}}:8000/api/v1/accounts/login/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{host}}"
 					],
 					"port": "8000",
 					"path": [
@@ -183,13 +177,10 @@
 					"formdata": []
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/current_user/",
+					"raw": "http://{{host}}:8000/api/v1/current_user/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{host}}"
 					],
 					"port": "8000",
 					"path": [
@@ -241,13 +232,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/current_user/",
+					"raw": "http://{{host}}:8000/api/v1/current_user/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{host}}"
 					],
 					"port": "8000",
 					"path": [
@@ -300,13 +288,10 @@
 					]
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/accounts/logout/",
+					"raw": "http://{{host}}:8000/api/v1/accounts/logout/",
 					"protocol": "http",
 					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
+						"{{host}}"
 					],
 					"port": "8000",
 					"path": [
