@@ -18,9 +18,15 @@ Features:
     docker compose up -d web
     docker-compose run --rm web python3 manage.py migrate
 
+`docker compose down` to shut down all networks & containers
+
+`docker compose up -d` will spin app & run api tests as a side action
+
 ## API tests
 
     docker compose up --exit-code-from cicd-api-tests
+
+Or, if you wish to run/edit calls locally, you can import `./api-tests` folder to Postman & select `Local` environment 
 
 ## Format & Lint
 
