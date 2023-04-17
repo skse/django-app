@@ -6,7 +6,8 @@ paths:
   /api/v1/current_user/:
     get:
       operationId: retrieveUser
-      description: ''
+      description: Returns relevant info for a currently logged user, and allows to
+        manipulate its subscriptions state.
       parameters: []
       responses:
         '200':
@@ -19,7 +20,8 @@ paths:
       - api
     patch:
       operationId: partialUpdateUser
-      description: ''
+      description: Returns relevant info for a currently logged user, and allows to
+        manipulate its subscriptions state.
       parameters: []
       requestBody:
         content:
@@ -44,7 +46,7 @@ paths:
   /api/v1/accounts/register/:
     post:
       operationId: createDefaultRegisterUser
-      description: 'Register new user.'
+      description: Register new user.
       parameters: []
       requestBody:
         content:
@@ -69,7 +71,7 @@ paths:
   /api/v1/accounts/login/:
     post:
       operationId: createDefaultLogin
-      description: 'Logs in the user via given login and password.'
+      description: Logs in the user via given login and password.
       parameters: []
       requestBody:
         content:
