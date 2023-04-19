@@ -29,7 +29,7 @@ Finally,
 
 ## API tests
 
-    docker compose up --exit-code-from cicd-api-tests
+    docker compose up cicd-api-tests
 
 Or, if you wish to run/edit calls locally, you can import `./api-tests` folder to Postman & select `Local` environment 
 
