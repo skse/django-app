@@ -11,7 +11,10 @@ Features:
 - An openapi schema for clients generation
     
 ## Prerequisites
-[Docker](https://www.docker.com/)
+* [Docker](https://www.docker.com/)
+* [Postman](https://www.postman.com/downloads/) &ast;
+
+&ast; optional
 
 ## Usage
 Copy `.env.example` to `.env`. Make appropriate config changes if you like (`SECRET_KEY` in particular)
@@ -31,9 +34,9 @@ Finally,
 
     docker compose up cicd-api-tests
 
-Or, if you wish to run/edit calls locally, you can import `./api-tests` folder to Postman & select `Local` environment 
+Or, if you wish to run/edit calls locally, you can import `./api-tests` folder to [Postman](https://www.postman.com/downloads/) & select `Local` environment 
 
-## Format & Lint *
+## Format & Lint &ast; 
 
     isort . && black . && flake8
 
