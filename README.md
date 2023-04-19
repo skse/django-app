@@ -14,9 +14,14 @@ Features:
 [Docker](https://www.docker.com/)
 
 ## Usage
+Copy `.env.example` to `.env`. Make appropriate config changes if you like (`SECRET_KEY` in particular)
+
+Then
 
     docker compose up -d web
     docker-compose run --rm web python3 manage.py migrate
+
+Finally,
 
 `docker compose down` to shut down all networks & containers
 
@@ -28,6 +33,8 @@ Features:
 
 Or, if you wish to run/edit calls locally, you can import `./api-tests` folder to Postman & select `Local` environment 
 
-## Format & Lint
+## Format & Lint *
 
     isort . && black . && flake8
+
+&ast; currently, requires local installation of ^^ packages

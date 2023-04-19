@@ -48,12 +48,13 @@ services:
 
   cicd-api-tests:
     image: "postman/newman:5.3.1"
-    entrypoint: sh
-    command: "/src/newman-wrapper.sh"
+    entrypoint: "sh"
+    command: "-c 'set -eu pipefail; until $(nc -zv web 8000); do printf '.'; sleep 5; done; newman run /src/postman-collection.json -e /src/docker.environment.json; exit 0'"
     volumes:
       - "./api-tests:/src/"
     depends_on:
       - "web"
+        # condition: service_healthy
 
 volumes:
   postgres: {}
